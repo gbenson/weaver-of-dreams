@@ -7,14 +7,14 @@ html, body {
     height: 100%;
 }
 body {
-    background-color: blueviolet;
+    background-color: #eee;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 .navbar, .container {
-    background-color: rgb(28, 28, 29);
+    background-color: white;
     width: 800px;
     border-radius: 3px;
 }
@@ -25,14 +25,13 @@ body {
     justify-content: center;
     align-items: center;
 }
-.btn, input {
-    height: 35px;
-    padding: 0 1em;
+.navbar input {
+    height: 2em;
+    padding: 0 0.5em;
+    margin: 0.15em;
 }
-.color {
-    padding: 0 .25em;
-    width: 100px;
-    margin: 0 1em;
+.navbar label::after {
+    content: ":";
 }
 .container {
     --size: 4;
