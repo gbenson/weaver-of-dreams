@@ -28,6 +28,9 @@ async function populate() {
   const requestURL = "../test/79703.json"
   const request = new Request(requestURL)
   const response = await fetch(request)
+  if (!response.ok) {
+    throw new Error("HTTP status " + response.status)
+  }
 
   const draft = new Draft(await response.json())
 
