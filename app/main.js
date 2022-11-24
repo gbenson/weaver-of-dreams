@@ -13,8 +13,47 @@ class Draft {
     this.isRisingShed = rising_shed
     this.warp = warp //XXX just so we can .length it below
     this.weft = weft //XXX ditto
+    this.warpRepeats = 1 //XXX detect and set
+    this.weftRepeats = 1 //XXX ditto
   }
 }
+
+const container = document.querySelector(".container")
+let draw = false
+
+function populate_container(draft) {
+
+  const numWarpThreads = draft.warp.length * draft.warpRepeats
+  const numWeftThreads = draft.weft.length * draft.weftRepeats
+
+  const numRows = 1 + 1 + draft.numShafts + 1 + numWeftThreads
+  const numCols = numWarpThreads + 1 + draft.numTreadles + 1 + 1
+
+  container.style.setProperty("--rows", numRows)
+  container.style.setProperty("--cols", numCols)
+
+  for (let i = 0; i < numRows * numCols; i++) {
+    const div = document.createElement("div")
+    div.classList.add("pixel")
+
+    div.addEventListener("mouseover", function() {
+        if(!draw) return
+        div.style.backgroundColor = "red"
+    })
+    div.addEventListener("mousedown", function() {
+        div.style.backgroundColor = "red"
+    })
+
+    container.appendChild(div)
+  }
+}
+
+window.addEventListener("mousedown", function() {
+    draw = true
+})
+window.addEventListener("mouseup", function() {
+    draw = false
+})
 
 const shaftsEl = document.querySelector("input[name=shafts]")
 const treadlesEl = document.querySelector("input[name=treadles]")
@@ -42,8 +81,10 @@ async function populate() {
   treadlesEl.value = draft.numTreadles
   threadsPUEl.value = draft.warp.length //XXX spot repeats
   treadsPUEl.value = draft.weft.length //XXX ditto
-  threadPUsEl.value = Number(draft.isRisingShed) //XXX make a checkbox
-  treadPUsEl.value = 2301023 //XXX i.e. success!
+  threadPUsEl.value = draft.warpRepeats
+  treadPUsEl.value = draft.weftRepeats
+
+  populate_container(draft)
 }
 
 populate()
