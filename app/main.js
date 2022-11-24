@@ -25,7 +25,11 @@ const treadPUsEl = document.querySelector("input[name=treadpus]")
 
 async function populate() {
 
-  const requestURL = "../test/79703.json"
+  // XXX There's a HACK in ../test/.htaccess to support loading
+  // XXX this test draft when I'm accessing everything else via
+  // XXX "file://" URLs locally.  Don't forget to remove the hack
+  // XXX whenever this test draft loading code gets removed.
+  const requestURL = "https://gbenson.net/wod/test/79703.json"
   const request = new Request(requestURL)
   const response = await fetch(request)
   if (!response.ok) {

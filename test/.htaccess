@@ -1,0 +1,9 @@
+# XXX Many browsers treat all local files as having opaque origins by
+# XXX default, to mitigate CVE-2019-11730.  This means I can't fetch
+# XXX file:///.../test/79703.json from file:///.../app/main.js, CORS
+# XXX blocks it.  This hack lets file:///.../app/main.js fetch the test
+# XXX draft from https://gbenson.net/wod/test//79703.json instead.  It
+# XXX should be removed when the code using the test draft is replaced.
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>
