@@ -32,6 +32,7 @@ function populate_container(draft) {
   container.style.setProperty("--rows", numRows)
   container.style.setProperty("--cols", numCols)
 
+  // Add the "pixels"
   for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
       const div = document.createElement("div")
@@ -54,6 +55,14 @@ function populate_container(draft) {
 
       container.appendChild(div)
     }
+  }
+
+  // Make the "pixels" square
+  const pixel = document.querySelector(".warpthreadcolor")
+  if (pixel.offsetWidth > pixel.offsetHeight) {
+    container.style.width = (container.offsetWidth
+			     - (pixel.offsetWidth
+				- pixel.offsetHeight) * numCols) + "px"
   }
 }
 
