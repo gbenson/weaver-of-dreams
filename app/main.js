@@ -38,6 +38,9 @@ function populate_container(draft) {
     const shaft = rawShaft < draft.numShafts ? rawShaft : -1
 
     for (let col = 0; col < numCols; col++) {
+      let rawTreadle = col - numWarpThreads - 1
+      const treadle = rawTreadle < draft.numTreadles ? rawTreadle : -1
+
       const div = document.createElement("div")
 
       if (row == 0 && col < numWarpThreads) {
@@ -49,6 +52,12 @@ function populate_container(draft) {
 	div.classList.add("threading")
 	if ((shaft + col + 1) % draft.numShafts == 0)
 	  div.classList.add("threaded")
+      }
+      else if (shaft >= 0 && treadle >= 0) {
+	// Tie-up
+	div.classList.add("tie-up")
+	if (treadle == shaft || (treadle + 1) % draft.numShafts == shaft)
+	  div.classList.add("tied")
       }
       else {
 	div.classList.add("pixel")

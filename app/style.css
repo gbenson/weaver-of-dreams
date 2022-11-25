@@ -50,10 +50,10 @@ body {
     border: 1px solid #aaa;
     background-color: navy;
 }
-.threading {
+.threading, .tie-up {
     border: 1px solid #ddd;
     background-color: white;
 }
-.threaded {
+.threaded, .tied {
     background-color: black;
 }
