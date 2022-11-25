@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/gbenson/weaver-of-dreams#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
     "eslint": "^8.28.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
