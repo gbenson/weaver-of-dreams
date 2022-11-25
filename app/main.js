@@ -34,12 +34,21 @@ function populate_container(draft) {
 
   // Add the "pixels"
   for (let row = 0; row < numRows; row++) {
+    let rawShaft = draft.numShafts - row + 1
+    const shaft = rawShaft < draft.numShafts ? rawShaft : -1
+
     for (let col = 0; col < numCols; col++) {
       const div = document.createElement("div")
 
       if (row == 0 && col < numWarpThreads) {
 	// Warp thread color picker
 	div.classList.add("warpthreadcolor")
+      }
+      else if (shaft >= 0 && col < numWarpThreads) {
+	// Threading
+	div.classList.add("threading")
+	if ((shaft + col + 1) % draft.numShafts == 0)
+	  div.classList.add("threaded")
       }
       else {
 	div.classList.add("pixel")

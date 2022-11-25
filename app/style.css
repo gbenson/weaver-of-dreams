@@ -50,3 +50,10 @@ body {
     border: 1px solid #aaa;
     background-color: navy;
 }
+.threading {
+    border: 1px solid #ddd;
+    background-color: white;
+}
+.threaded {
+    background-color: black;
+}
