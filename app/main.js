@@ -32,19 +32,28 @@ function populate_container(draft) {
   container.style.setProperty("--rows", numRows)
   container.style.setProperty("--cols", numCols)
 
-  for (let i = 0; i < numRows * numCols; i++) {
-    const div = document.createElement("div")
-    div.classList.add("pixel")
+  for (let row = 0; row < numRows; row++) {
+    for (let col = 0; col < numCols; col++) {
+      const div = document.createElement("div")
 
-    div.addEventListener("mouseover", function() {
-        if(!draw) return
-        div.style.backgroundColor = "red"
-    })
-    div.addEventListener("mousedown", function() {
-        div.style.backgroundColor = "red"
-    })
+      if (row == 0 && col < numWarpThreads) {
+	// Warp thread color picker
+	div.classList.add("warpthreadcolor")
+      }
+      else {
+	div.classList.add("pixel")
 
-    container.appendChild(div)
+	div.addEventListener("mouseover", function() {
+          if(!draw) return
+          div.style.backgroundColor = "red"
+	})
+	div.addEventListener("mousedown", function() {
+          div.style.backgroundColor = "red"
+	})
+      }
+
+      container.appendChild(div)
+    }
   }
 }
 
