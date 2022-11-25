@@ -50,6 +50,10 @@ body {
     border: 1px solid #aaa;
     background-color: navy;
 }
+.weftthreadcolor {
+    border: 1px solid #ddd;
+    background-color: #eee;
+}
 .threading, .tie-up, .treadling {
     border: 1px solid #ddd;
     background-color: white;

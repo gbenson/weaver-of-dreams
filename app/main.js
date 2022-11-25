@@ -50,6 +50,10 @@ function populate_container(draft) {
 	// Warp thread color picker
 	div.classList.add("warpthreadcolor")
       }
+      else if (warp >= 0 && col == numCols - 1) {
+	// Weft thread color picker
+	div.classList.add("weftthreadcolor")
+      }
       else if (shaft >= 0 && col < numWarpThreads) {
 	// Threading
 	div.classList.add("threading")
