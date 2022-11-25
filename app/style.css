@@ -46,13 +46,13 @@ body {
 .pixel {
     background-color: white;
 }
-.warpthreadcolor {
-    border: 1px solid #aaa;
-    background-color: navy;
+.warpthreadcolor, .drawdown-warp {
+    border: 1px solid #d4cdc2;
+    background-color: #f2eadf;
 }
-.weftthreadcolor {
-    border: 1px solid #ddd;
-    background-color: #eee;
+.weftthreadcolor, .drawdown-weft {
+    border: 1px solid #d78d6b;
+    background-color: #efa582;
 }
 .threading, .tie-up, .treadling {
     border: 1px solid #ddd;

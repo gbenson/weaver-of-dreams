@@ -39,25 +39,26 @@ function populate_container(draft) {
   // Add the "pixels"
   for (let row = 0; row < numRows; row++) {
     const shaft = clip(draft.numShafts - row + 1, draft.numShafts)
-    const warp = row - (numRows - numWarpThreads)
+    const weft = row - (numRows - numWeftThreads)
 
     for (let col = 0; col < numCols; col++) {
       const treadle = clip(col - numWarpThreads - 1, draft.numTreadles)
+      const warp = clip(col, numWarpThreads)
 
       const div = document.createElement("div")
 
-      if (row == 0 && col < numWarpThreads) {
+      if (row == 0 && warp >= 0) {
 	// Warp thread color picker
 	div.classList.add("warpthreadcolor")
       }
-      else if (warp >= 0 && col == numCols - 1) {
+      else if (weft >= 0 && col == numCols - 1) {
 	// Weft thread color picker
 	div.classList.add("weftthreadcolor")
       }
-      else if (shaft >= 0 && col < numWarpThreads) {
+      else if (warp >= 0 && shaft >= 0) {
 	// Threading
 	div.classList.add("threading")
-	if ((shaft + col + 1) % draft.numShafts == 0)
+	if ((shaft + warp + 1) % draft.numShafts == 0)
 	  div.classList.add("threaded")
       }
       else if (shaft >= 0 && treadle >= 0) {
@@ -66,11 +67,17 @@ function populate_container(draft) {
 	if (treadle == shaft || (treadle + 1) % draft.numShafts == shaft)
 	  div.classList.add("tied")
       }
-      else if (warp >= 0 && treadle >= 0) {
+      else if (weft >= 0 && treadle >= 0) {
 	// Treadling
 	div.classList.add("treadling")
-	if (warp % draft.numTreadles == treadle)
+	if (weft % draft.numTreadles == treadle)
 	  div.classList.add("treadled")
+      }
+      else if (warp >= 0 && weft >= 0) {
+	// Drawdown
+	div.classList.add("drawdown-warp")
+	if ((warp + weft) % draft.numShafts < (draft.numShafts)/2)
+	  div.classList.add("drawdown-weft")
       }
       else {
 	div.classList.add("pixel")
