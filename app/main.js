@@ -39,6 +39,7 @@ function populate_container(draft) {
   // Add the "pixels"
   for (let row = 0; row < numRows; row++) {
     const shaft = clip(draft.numShafts - row + 1, draft.numShafts)
+    const warp = row - (numRows - numWarpThreads)
 
     for (let col = 0; col < numCols; col++) {
       const treadle = clip(col - numWarpThreads - 1, draft.numTreadles)
@@ -60,6 +61,12 @@ function populate_container(draft) {
 	div.classList.add("tie-up")
 	if (treadle == shaft || (treadle + 1) % draft.numShafts == shaft)
 	  div.classList.add("tied")
+      }
+      else if (warp >= 0 && treadle >= 0) {
+	// Treadling
+	div.classList.add("treadling")
+	if (warp % draft.numTreadles == treadle)
+	  div.classList.add("treadled")
       }
       else {
 	div.classList.add("pixel")
