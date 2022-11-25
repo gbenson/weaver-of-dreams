@@ -21,6 +21,10 @@ class Draft {
 const container = document.querySelector(".container")
 let draw = false
 
+function clip(val, max, min = 0) {
+  return (val >= min && val < max) ? val : min - 1
+}
+
 function populate_container(draft) {
 
   const numWarpThreads = draft.warp.length * draft.warpRepeats
@@ -34,12 +38,10 @@ function populate_container(draft) {
 
   // Add the "pixels"
   for (let row = 0; row < numRows; row++) {
-    let rawShaft = draft.numShafts - row + 1
-    const shaft = rawShaft < draft.numShafts ? rawShaft : -1
+    const shaft = clip(draft.numShafts - row + 1, draft.numShafts)
 
     for (let col = 0; col < numCols; col++) {
-      let rawTreadle = col - numWarpThreads - 1
-      const treadle = rawTreadle < draft.numTreadles ? rawTreadle : -1
+      const treadle = clip(col - numWarpThreads - 1, draft.numTreadles)
 
       const div = document.createElement("div")
 
