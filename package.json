@@ -1,0 +1,27 @@
+{
+  "name": "weaver-of-dreams",
+  "version": "0.0.1",
+  "description": "Weaving software experiment",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbenson/weaver-of-dreams.git"
+  },
+  "keywords": [
+    "weaving",
+    "fabric",
+    "cloth",
+    "textiles"
+  ],
+  "author": "Gary Benson",
+  "bugs": {
+    "url": "https://github.com/gbenson/weaver-of-dreams/issues"
+  },
+  "homepage": "https://github.com/gbenson/weaver-of-dreams#readme"
+}
