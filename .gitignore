@@ -133,3 +133,6 @@ dmypy.json
 
 # API keys and the like
 /secrets
+
+# Node dependency directories
+node_modules/
