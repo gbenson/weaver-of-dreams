@@ -84,6 +84,12 @@ function populate_container(draft) {
 			     - (pixel.offsetWidth
 				- pixel.offsetHeight) * numCols) + "px"
   }
+  else if (pixel.offsetWidth < pixel.offsetHeight) {
+    container.style.height = (container.offsetHeight
+			      - (pixel.offsetHeight
+				- pixel.offsetWidth) * numRows) + "px"
+  }
+
 }
 
 window.addEventListener("mousedown", function() {
