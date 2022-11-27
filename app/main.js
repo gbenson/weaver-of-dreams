@@ -1,4 +1,4 @@
-import {Draft} from "./draft.js"
+import Draft from "./draft.js"
 
 const container = document.querySelector(".container")
 let draw = false

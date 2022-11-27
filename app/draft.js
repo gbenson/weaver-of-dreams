@@ -1,4 +1,4 @@
-export class Draft {
+export default class Draft {
   constructor({num_shafts,
 	       num_treadles,
 	       rising_shed,
