@@ -1,18 +1,27 @@
 export class ColorSequence {
-  colors = [];
+  #colors = [];
 
   constructor(initialSequence) {
     if (initialSequence !== undefined) {
-      this.colors = [...initialSequence];
+      this.#colors = [...initialSequence];
     }
+    this.colors = new Proxy(this, this);
+  }
+
+  get(target, prop, receiver) {
+    const index = Number(prop);
+    if (Number.isInteger(index) && index >= 0) {
+      return this.#colors[index % this.length];
+    }
+    return Reflect.get(this.#colors, prop);
   }
 
   get length() {
-    return this.colors.length;
+    return this.#colors.length;
   }
 
   push(...colors) {
-    this.colors.push(...colors);
+    this.#colors.push(...colors);
   }
 
   *forDaysx() {

@@ -50,6 +50,17 @@ describe('ColorSequence', () => {
   it('describes an infinite sequence of thread colors', () => {
     const cs = new ColorSequence([color3, color1]);
 
+    expect(cs.colors[0]).toBe(color3);
+    expect(cs.colors[1]).toBe(color1);
+    expect(cs.colors[2]).toBe(color3);
+    expect(cs.colors[3]).toBe(color1);
+    expect(cs.colors[4]).toBe(color3);
+    expect(cs.colors[5]).toBe(color1);
+  });
+
+  /*it('describes an infinite sequence of thread colors', () => {
+    const cs = new ColorSequence([color3, color1]);
+
     let count = 0;
     // eslint-disable-next-line no-restricted-syntax
     for (const color of cs.forDays) {
@@ -75,7 +86,7 @@ describe('ColorSequence', () => {
 
       break;
     }
-  });
+  });*/
 
   it('can be pushed onto', () => {
     const cs = new ColorSequence();
