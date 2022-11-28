@@ -31,6 +31,7 @@ describe('TieUp', () => {
 describe('ColorSequence', () => {
   const color1 = new Color('#04b008');
   const color2 = new Color('#0faf0e');
+  const color3 = new Color('#9acd03');
 
   it('is created empty by default', () => {
     const cs = new ColorSequence();
@@ -47,7 +48,21 @@ describe('ColorSequence', () => {
   });
 
   it.todo('describes a sequence of thread colors');
-  it.todo('can be pushed onto');
+
+  it('can be pushed onto', () => {
+    const cs = new ColorSequence();
+
+    expect(cs).toHaveLength(0);
+    expect(cs.colors).toHaveLength(0);
+    cs.push(color2);
+    expect(cs.colors).toEqual([color2]);
+    expect(cs).toHaveLength(1);
+
+    cs.push(color1, color3);
+    expect(cs).toHaveLength(3);
+    expect(cs.colors).toEqual([color2, color1, color3]);
+  });
+
   it.todo('should repeat indefinitely');
   it.todo('might be the same in warp and weft, e.g. tartan');
   it.todo('might be monochrome');

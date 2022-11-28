@@ -10,6 +10,10 @@ export class ColorSequence {
   get length() {
     return this.colors.length;
   }
+
+  push(...colors) {
+    this.colors.push(...colors);
+  }
 }
 
 export default class Draft {
