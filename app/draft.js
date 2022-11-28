@@ -14,6 +14,18 @@ export class ColorSequence {
   push(...colors) {
     this.colors.push(...colors);
   }
+
+  *forDaysx() {
+    while (true) {
+      for (const color of this.colors) {
+        yield color;
+      }
+    }
+  }
+
+  get forDays() {
+    return this.forDaysx()
+  }
 }
 
 export default class Draft {

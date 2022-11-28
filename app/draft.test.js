@@ -47,7 +47,35 @@ describe('ColorSequence', () => {
     expect(cs.colors).toEqual([color1, color2]);
   });
 
-  it.todo('describes a sequence of thread colors');
+  it('describes an infinite sequence of thread colors', () => {
+    const cs = new ColorSequence([color3, color1]);
+
+    let count = 0;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const color of cs.forDays) {
+      // eslint-disable-next-line no-plusplus
+      switch (count++) {
+      case 0:
+      case 2:
+      case 4:
+        expect(color).toBe(color3);
+        // eslint-disable-next-line no-continue
+        continue;
+      case 1:
+      case 3:
+      case 5:
+        expect(color).toBe(color1);
+        // eslint-disable-next-line no-continue
+        continue;
+      case 6:
+        break;
+      default:
+        throw new Error('Should not reach here');
+      }
+
+      break;
+    }
+  });
 
   it('can be pushed onto', () => {
     const cs = new ColorSequence();

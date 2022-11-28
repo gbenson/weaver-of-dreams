@@ -14,5 +14,6 @@ module.exports = {
     "jest",
   ],
   rules: {
+    indent: ["error", 2, { "SwitchCase": 0 }]
   },
 };
