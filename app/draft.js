@@ -1,3 +1,17 @@
+export class ColorSequence {
+  colors = [];
+
+  constructor(initialSequence) {
+    if (initialSequence !== undefined) {
+      this.colors = [...initialSequence];
+    }
+  }
+
+  get length() {
+    return this.colors.length;
+  }
+}
+
 export default class Draft {
   constructor({num_shafts,
 	       num_treadles,
