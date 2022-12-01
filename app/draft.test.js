@@ -1,4 +1,4 @@
-import { ThreadSequence } from './draft';
+import { ThreadSequence, gcd } from './draft';
 
 const color1 = { color: 'black' };
 const color2 = { color: 'white' };
@@ -44,4 +44,26 @@ describe('TieUp', () => {
   it.todo('is created empty by default');
   it.todo('describes which treadles move which shafts');
   it.todo('may be rising- or sinking-shed');
+});
+
+describe('greatestCommonDivisor', () => {
+  it('correctly handles gcd(0, 0)', () => {
+    expect(gcd(0, 0)).toEqual(0);
+  });
+
+  it('correctly handles gcd(a, 0) and gcd(0, a)', () => {
+    expect(gcd(7, 0)).toEqual(7);
+    expect(gcd(-2, 0)).toEqual(2);
+    expect(gcd(0, 4)).toEqual(4);
+    expect(gcd(0, -3)).toEqual(3);
+  });
+
+  it('correctly handles gcd(a, b) for positive a, b', () => {
+    expect(gcd(8, 12)).toEqual(4);
+    expect(gcd(54, 24)).toEqual(6);
+    expect(gcd(42, 56)).toEqual(14);
+    expect(gcd(24, 60)).toEqual(12);
+    expect(gcd(48, 180)).toEqual(12);
+    expect(gcd(48, 18)).toEqual(6);
+  });
 });

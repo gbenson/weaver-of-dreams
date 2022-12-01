@@ -1,5 +1,25 @@
 /* eslint-disable max-classes-per-file */
 
+/**
+ * The greatest common divisor (GCD) of two integers a and b is the
+ * greatest positive integer d such that d is a divisor of both a and
+ * b; that is, there are integers e and f such that a = de and b = df,
+ * and d is the largest such integer. The GCD of a and b is generally
+ * denoted gcd(a, b).
+ *   -- https://en.wikipedia.org/wiki/Greatest_common_divisor
+ */
+export const gcd = function greatestCommonDivisor(x, y) {
+  let a = Math.abs(x);
+  let b = Math.abs(y);
+
+  // Euclid's algorithm
+  while (b) {
+    [a, b] = [b, a % b];
+  }
+
+  return a;
+};
+
 export class ThreadSequence {
   constructor({ numbers = [], colors = [], repeats = 1 }) {
     this.numbers = numbers;
