@@ -1,3 +1,8 @@
+import { ThreadSequence } from './draft';
+
+const color1 = { color: 'black' };
+const color2 = { color: 'white' };
+
 describe('Draft', () => {
   it.todo('has a warp');
   it.todo('has a weft');
@@ -5,45 +10,38 @@ describe('Draft', () => {
   it.todo('can compute a drawdown');
 });
 
-describe('Warp', () => {
-  it.todo('describes a sequence of (shaft number, thread color) pairs');
-  it.todo('has a length (number of threads)');
-  it.todo('might repeat a specified number of times');
-});
+describe('ThreadSequence', () => {
+  it('is created empty by default', () => {
+    const ts = new ThreadSequence({});
 
-describe('Weft', () => {
-  it.todo('describes a sequence of (treadle set, thread color) pairs');
-  it.todo('has a length (number of threads)');
-  it.todo('might repeat a specified number of times');
-  it.todo('might be tromp as writ');
-  it.todo('might have the same color sequence as the warp');
+    expect(ts.numbers).toHaveLength(0);
+    expect(ts.colors).toHaveLength(0);
+    expect(ts.repeats).toEqual(1);
+  });
+
+  it('may be created with initial sequences', () => {
+    const ts = new ThreadSequence({
+      numbers: [1, 2, 3, 4],
+      colors: [
+        color1, color1, color1, color1,
+        color2, color2, color2, color2,
+      ],
+    });
+
+    expect(ts.numbers).toHaveLength(4);
+    expect(ts.colors).toHaveLength(8);
+    expect(ts.colors).toHaveLength(8);
+  });
+
+  it.todo('has a unit length which is LCM(num colors, num shafts)');
+  it.todo('has an overall length which is base length x number of repeats');
+  it.todo('can iterate over the combined sequences (or create arrays)');
+  it.todo('can be in multiple positions in multiple drafts');
+  it.todo('can be iterated in reverse');
 });
 
 describe('TieUp', () => {
+  it.todo('is created empty by default');
   it.todo('describes which treadles move which shafts');
   it.todo('may be rising- or sinking-shed');
-});
-
-describe('ColorSequence', () => {
-  it.todo('describes a sequence of thread colors');
-  it.todo('should repeat indefinitely');
-  it.todo('might be the same in warp and weft, e.g. tartan');
-  it.todo('might be monochrome');
-  it.todo('might be longer than the threading/treadling sequence');
-});
-
-describe('ThreadingSequence', () => {
-  it.todo('describes a sequence of shaft numbers');
-  it.todo('might have to repeat for a long color sequence e.g. tartan');
-  it.todo('might be any old sequence');
-  it.todo('might be a particular structure e.g. crackle');
-});
-
-describe('TreadlingSequence', () => {
-  it.todo('describes a sequence of treadle sets');
-  it.todo('might have to repeat for a long color sequence e.g. tartan');
-  it.todo('might be any old sequence');
-  it.todo('might be tromp as writ');
-  it.todo('might be specific to the warp structure e.g. in summer and winter');
-  it.todo('might be from a different draft');
 });

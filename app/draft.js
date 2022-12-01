@@ -1,3 +1,13 @@
+/* eslint-disable max-classes-per-file */
+
+export class ThreadSequence {
+  constructor({ numbers = [], colors = [], repeats = 1 }) {
+    this.numbers = numbers;
+    this.colors = colors;
+    this.repeats = repeats;
+  }
+}
+
 export default class Draft {
   constructor({
     num_shafts, // eslint-disable-line camelcase
