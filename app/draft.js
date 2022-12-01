@@ -1,19 +1,26 @@
 export default class Draft {
-  constructor({num_shafts,
-	       num_treadles,
-	       rising_shed,
-	       tieup,
-	       warp,
-	       weft,
-	       //liftplan,
-    //date, title, author, address, email, telephone, fax, notes])
-	      }) {
-    this.numShafts = num_shafts
-    this.numTreadles = num_treadles
-    this.isRisingShed = rising_shed
-    this.warp = warp //XXX just so we can .length it below
-    this.weft = weft //XXX ditto
-    this.warpRepeats = 1 //XXX detect and set
-    this.weftRepeats = 1 //XXX ditto
+  constructor({
+    num_shafts, // eslint-disable-line camelcase
+    num_treadles, // eslint-disable-line camelcase
+    rising_shed, // eslint-disable-line camelcase
+    tieup, //  eslint-disable-line no-unused-vars
+    warp,
+    weft,
+    // eslint-disable-next-line spaced-comment
+    //liftplan,
+    // eslint-disable-next-line spaced-comment
+    //date, title, author, address, email, telephone, fax, notes]) */
+  }) {
+    this.numShafts = num_shafts; // eslint-disable-line camelcase
+    this.numTreadles = num_treadles; // eslint-disable-line camelcase
+    this.isRisingShed = rising_shed; // eslint-disable-line camelcase
+    // eslint-disable-next-line spaced-comment
+    this.warp = warp; //XXX just so we can .length it below
+    // eslint-disable-next-line spaced-comment
+    this.weft = weft; //XXX ditto
+    // eslint-disable-next-line spaced-comment
+    this.warpRepeats = 1; //XXX detect and set
+    // eslint-disable-next-line spaced-comment
+    this.weftRepeats = 1; //XXX ditto
   }
 }
