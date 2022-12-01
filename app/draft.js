@@ -20,6 +20,22 @@ export const gcd = function greatestCommonDivisor(x, y) {
   return a;
 };
 
+/**
+ * The least common multiple (LCM) of two integers a and b is the
+ * smallest positive integer that is divisible by both a and b.  Since
+ * division of integers by zero is undefined, this definition has
+ * meaning only if a and b are both different from zero, however some
+ * authors define lcm(a, 0) as 0 for all a, since 0 is the only common
+ * multiple of a and 0.
+ *   -- https://en.wikipedia.org/wiki/Least_common_multiple
+ */
+export const lcm = function leastCommonMultiple(x, y) {
+  if (x === 0 || y === 0) {
+    return 0;
+  }
+  return Math.abs((x * y) / gcd(x, y));
+};
+
 export class ThreadSequence {
   constructor({ numbers = [], colors = [], repeats = 1 }) {
     this.numbers = numbers;

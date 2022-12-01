@@ -1,4 +1,4 @@
-import { ThreadSequence, gcd } from './draft';
+import { ThreadSequence, gcd, lcm } from './draft';
 
 const color1 = { color: 'black' };
 const color2 = { color: 'white' };
@@ -44,6 +44,31 @@ describe('TieUp', () => {
   it.todo('is created empty by default');
   it.todo('describes which treadles move which shafts');
   it.todo('may be rising- or sinking-shed');
+});
+
+describe('leastCommonMultiple', () => {
+  it('correctly handles lcm(0, 0)', () => {
+    expect(lcm(0, 0)).toEqual(0);
+  });
+
+  it('correctly handles lcm(a, 0) and lcm(0, a)', () => {
+    expect(lcm(7, 0)).toEqual(0);
+    expect(lcm(-2, 0)).toEqual(0);
+    expect(lcm(0, 4)).toEqual(0);
+    expect(lcm(0, -3)).toEqual(0);
+  });
+
+  it('correctly handles lcm(a, b) for positive a, b', () => {
+    expect(lcm(5, 2)).toEqual(10);
+    expect(lcm(4, 6)).toEqual(12);
+    expect(lcm(21, 6)).toEqual(42);
+  });
+
+  it('correctly handles lcm(a, b) for negative a, b', () => {
+    expect(lcm(-5, 2)).toEqual(10);
+    expect(lcm(4, -6)).toEqual(12);
+    expect(lcm(-21, -6)).toEqual(42);
+  });
 });
 
 describe('greatestCommonDivisor', () => {
