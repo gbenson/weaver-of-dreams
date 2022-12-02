@@ -30,7 +30,6 @@ describe('ThreadSequence', () => {
 
     expect(ts.numbers).toHaveLength(4);
     expect(ts.colors).toHaveLength(8);
-    expect(ts.colors).toHaveLength(8);
   });
 
   it.todo('has a unit length which is LCM(num colors, num shafts)');
