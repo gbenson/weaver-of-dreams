@@ -32,6 +32,7 @@ describe('ThreadSequence', () => {
     expect(ts.colors).toHaveLength(8);
   });
 
+  it.todo('may be created empty and then populated');
   it.todo('has a unit length which is LCM(num colors, num shafts)');
   it.todo('has an overall length which is base length x number of repeats');
   it.todo('can iterate over the combined sequences (or create arrays)');
