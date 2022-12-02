@@ -12,7 +12,7 @@ describe('Draft', () => {
 
 describe('ThreadSequence', () => {
   it('is created empty by default', () => {
-    const ts = new ThreadSequence({});
+    const ts = new ThreadSequence();
 
     expect(ts.numbers).toHaveLength(0);
     expect(ts.colors).toHaveLength(0);
