@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Draft from "./draft.js"
 
 const container = document.querySelector(".container")
