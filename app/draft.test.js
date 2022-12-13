@@ -32,7 +32,24 @@ describe('ThreadSequence', () => {
     expect(ts.colors).toHaveLength(8);
   });
 
-  it.todo('may be created empty and then populated');
+  it('may be created empty and then populated with colors', () => {
+    const ts = new ThreadSequence();
+
+    ts.colors.push(color2, color1, color1, color2);
+
+    expect(ts.numbers).toHaveLength(0);
+    expect(ts.colors).toHaveLength(4);
+  });
+
+  it('may be created empty and then populated with numbers', () => {
+    const ts = new ThreadSequence();
+
+    ts.numbers.push(1, 1, 1, 1, 2, 2, 2, 2);
+
+    expect(ts.numbers).toHaveLength(8);
+    expect(ts.colors).toHaveLength(0);
+  });
+
   it.todo('has a unit length which is LCM(num colors, num shafts)');
   it.todo('has an overall length which is base length x number of repeats');
   it.todo('can iterate over the combined sequences (or create arrays)');
