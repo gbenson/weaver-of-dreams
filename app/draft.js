@@ -1,10 +1,16 @@
 /* eslint-disable max-classes-per-file */
 
+import lcm from './lcm';
+
 export class ThreadSequence {
   constructor({ numbers = [], colors = [], repeats = 1 } = {}) {
     this.numbers = numbers;
     this.colors = colors;
     this.repeats = repeats;
+  }
+
+  get unitLength() {
+    return lcm(this.numbers.length, this.colors.length);
   }
 }
 

@@ -50,7 +50,14 @@ describe('ThreadSequence', () => {
     expect(ts.colors).toHaveLength(0);
   });
 
-  it.todo('has a unit length which is LCM(num colors, num shafts)');
+  it('has a unit length which defines the smallest repeatable unit', () => {
+    // colors.length exactly divides into numbers.length
+    expect(new ThreadSequence({
+      colors: [color2, color1, color1, color2],
+      numbers: [1, 1, 1, 1, 2, 2, 2, 2],
+    }).unitLength).toEqual(8);
+  });
+
   it.todo('has an overall length which is base length x number of repeats');
   it.todo('can iterate over the combined sequences (or create arrays)');
   it.todo('can be in multiple positions in multiple drafts');
